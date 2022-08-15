@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:how_much_spend_app/app/ui/android/home/home_page.dart';
+import 'package:how_much_spend_app/app/ui/android/home/index_page.dart';
 import 'package:how_much_spend_app/app/ui/android/login/widget/google_sign_button.dart';
 import 'package:how_much_spend_app/app/ui/android/login/widget/profile.dart';
 
@@ -24,7 +25,7 @@ class LoginPage extends StatelessWidget{
                   stream: FirebaseAuth.instance.authStateChanges(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      return const ProfilePage();
+                      return IndexPage(selectIndex: 0);
                     }
                     return const AuthGate();
                   },
@@ -68,7 +69,7 @@ class AuthGate extends StatelessWidget {
               ),
             ),
           ),
-          onTap: () => {Get.to(const HomePage())},
+          onTap: () => {Get.to(const IndexPage(selectIndex: 0))},
         )
       ],
     );

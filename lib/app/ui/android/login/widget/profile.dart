@@ -87,109 +87,111 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: FocusScope.of(context).unfocus,
-      child: Scaffold(
-        body: Stack(
-          children: [
-            Center(
-              child: SizedBox(
-                width: 400,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Stack(
-                      children: [
-                        CircleAvatar(
-                          maxRadius: 60,
-                          backgroundImage: NetworkImage(
-                            user.photoURL ?? placeholderImage,
-                          ),
-                        ),
-                        Positioned.directional(
-                          textDirection: Directionality.of(context),
-                          end: 0,
-                          bottom: 0,
-                          child: Material(
-                            clipBehavior: Clip.antiAlias,
-                            color: Theme.of(context).colorScheme.secondary,
-                            borderRadius: BorderRadius.circular(40),
-                            child: InkWell(
-                              onTap: () async {
-                                final photoURL = await getPhotoURLFromUser();
-
-                                if (photoURL != null) {
-                                  await user.updatePhotoURL(photoURL);
-                                }
-                              },
-                              radius: 50,
-                              child: const SizedBox(
-                                width: 35,
-                                height: 35,
-                                child: Icon(Icons.edit),
-                              ),
+    return Scaffold(
+      body: GestureDetector(
+        onTap: FocusScope.of(context).unfocus,
+        child: Scaffold(
+          body: Stack(
+            children: [
+              Center(
+                child: SizedBox(
+                  width: 400,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Stack(
+                        children: [
+                          CircleAvatar(
+                            maxRadius: 60,
+                            backgroundImage: NetworkImage(
+                              user.photoURL ?? placeholderImage,
                             ),
                           ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    TextField(
-                      textAlign: TextAlign.center,
-                      controller: controller,
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        floatingLabelBehavior: FloatingLabelBehavior.never,
-                        alignLabelWithHint: true,
-                        label: Center(
-                          child: Text(
-                            'Click to add a display name',
+                          Positioned.directional(
+                            textDirection: Directionality.of(context),
+                            end: 0,
+                            bottom: 0,
+                            child: Material(
+                              clipBehavior: Clip.antiAlias,
+                              color: Theme.of(context).colorScheme.secondary,
+                              borderRadius: BorderRadius.circular(40),
+                              child: InkWell(
+                                onTap: () async {
+                                  final photoURL = await getPhotoURLFromUser();
+
+                                  if (photoURL != null) {
+                                    await user.updatePhotoURL(photoURL);
+                                  }
+                                },
+                                radius: 50,
+                                child: const SizedBox(
+                                  width: 35,
+                                  height: 35,
+                                  child: Icon(Icons.edit),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      TextField(
+                        textAlign: TextAlign.center,
+                        controller: controller,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                          alignLabelWithHint: true,
+                          label: Center(
+                            child: Text(
+                              'Click to add a display name',
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Text(user.email ?? user.phoneNumber ?? 'User'),
-                    const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (userProviders.contains('phone'))
-                          const Icon(Icons.phone),
-                        if (userProviders.contains('password'))
-                          const Icon(Icons.mail),
-                        if (userProviders.contains('google.com'))
-                          SizedBox(
-                            width: 24,
-                            child: Image.network(
-                              'https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png',
+                      Text(user.email ?? user.phoneNumber ?? 'User'),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (userProviders.contains('phone'))
+                            const Icon(Icons.phone),
+                          if (userProviders.contains('password'))
+                            const Icon(Icons.mail),
+                          if (userProviders.contains('google.com'))
+                            SizedBox(
+                              width: 24,
+                              child: Image.network(
+                                'https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png',
+                              ),
                             ),
-                          ),
-                      ],
-                    ),
-                    const SizedBox(height: 40),
-                    const TextButton(
-                      onPressed: signOut,
-                      child: Text('Sign out'),
-                    ),
-                  ],
+                        ],
+                      ),
+                      const SizedBox(height: 40),
+                      const TextButton(
+                        onPressed: signOut,
+                        child: Text('Sign out'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Positioned.directional(
-              textDirection: Directionality.of(context),
-              end: 40,
-              top: 40,
-              child: AnimatedSwitcher(
-                duration: const Duration(milliseconds: 200),
-                child: !showSaveButton
-                    ? SizedBox(key: UniqueKey())
-                    : TextButton(
-                  onPressed: isLoading ? null : updateDisplayName,
-                  child: const Text('Save changes'),
+              Positioned.directional(
+                textDirection: Directionality.of(context),
+                end: 40,
+                top: 40,
+                child: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 200),
+                  child: !showSaveButton
+                      ? SizedBox(key: UniqueKey())
+                      : TextButton(
+                    onPressed: isLoading ? null : updateDisplayName,
+                    child: const Text('Save changes'),
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

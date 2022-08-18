@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:how_much_spend_app/app/ui/android/home/home_page.dart';
 import 'package:how_much_spend_app/app/ui/android/login/widget/profile.dart';
 import 'package:how_much_spend_app/app/ui/android/record/record_page.dart';
@@ -75,7 +76,9 @@ class _IndexPageState extends State<IndexPage> {
           child: FittedBox(
             child: FloatingActionButton(
               backgroundColor: Colors.redAccent,
-              onPressed: () {},
+              onPressed: () {
+                Get.to(() => RecordPage());
+                },
               child: Text("Run"),
             ),
           ),

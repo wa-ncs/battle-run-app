@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 import 'package:how_much_spend_app/app/ui/android/home/home_page.dart';
 import 'package:how_much_spend_app/app/ui/android/login/widget/profile.dart';
 import 'package:how_much_spend_app/app/ui/android/record/record_page.dart';
+import 'package:how_much_spend_app/app/ui/android/record/widget/google_map_page.dart';
 import 'package:how_much_spend_app/app/ui/android/widgets/bottom_navigator_widget.dart';
+import 'package:how_much_spend_app/app/ui/theme/constant.dart';
 
 class IndexPage extends StatefulWidget {
   static const routeId = '/';
@@ -29,7 +31,7 @@ class _IndexPageState extends State<IndexPage> {
       HomePage(),
       ProfilePage(),
       RecordPage(),
-      HomePage(),
+      GoogleMapPage(),
       RecordPage(),
       // TodayWordScreen(),
       // MyPageScreen(),
@@ -67,9 +69,7 @@ class _IndexPageState extends State<IndexPage> {
         return false;
       },
       child: Scaffold(
-        extendBody: true,
-        appBar: AppBar(),
-        body: bodyContent,
+        body: Container(child: bodyContent),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: SizedBox(
           width: 80,
@@ -79,7 +79,7 @@ class _IndexPageState extends State<IndexPage> {
               onPressed: () {
                 Get.to(() => RecordPage());
                 },
-              child: Text("Run"),
+              child: Text("Run",style: TextStyle(fontFamily: 'Aggro')),
             ),
           ),
         ),

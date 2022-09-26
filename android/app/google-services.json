@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "289187047953",
+    "project_id": "battle-run-b4ba8",
+    "storage_bucket": "battle-run-b4ba8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289187047953:android:a3fc1d0665cdc85ec0dfb0",
+        "android_client_info": {
+          "package_name": "com.example.how_much_spend_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289187047953-7kh2tmva3t83ap240vernnkf2j3t30dt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.how_much_spend_app",
+            "certificate_hash": "146c073813741c928ff3a0a87df1c51da24f0aff"
+          }
+        },
+        {
+          "client_id": "289187047953-b8gpdshoiakqjntmur7tiruub3b47tds.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbZAq8Ja1Hj9ZnJHQDdCD64llHM3DCNEs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289187047953-b8gpdshoiakqjntmur7tiruub3b47tds.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

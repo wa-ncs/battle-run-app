@@ -8,6 +8,9 @@ final ThemeData appThemeData = ThemeData(
   backgroundColor: Colors.white,
   scaffoldBackgroundColor: Colors.white,
   fontFamily: 'Aggro',
+  appBarTheme: AppBarTheme(
+    color: Colors.white
+  )
   // textTheme: const TextTheme(
   //   headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
   // ),

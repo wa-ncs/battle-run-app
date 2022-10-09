@@ -7,12 +7,18 @@ class LoginController extends GetxController {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final _isLoading = RxnBool(false);
+  bool _isJoin = false;
 
   get auth => _auth;
+  get isJoin => _isJoin;
 
   get isLoading => _isLoading.value;
   set isLoading(value) => _isLoading.value = value;
 
+  void joinToggle() {
+    _isJoin = !_isJoin;
+    update();
+  }
   Future<void> signInWithGoogle() async {
     _isLoading(true);
     try {

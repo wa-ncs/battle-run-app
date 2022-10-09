@@ -2,6 +2,7 @@ import 'dart:collection';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:how_much_spend_app/app/ui/android/history/my_history_page.dart';
 import 'package:how_much_spend_app/app/ui/android/home/home_page.dart';
 import 'package:how_much_spend_app/app/ui/android/login/widget/profile.dart';
 import 'package:how_much_spend_app/app/ui/android/record/record_page.dart';
@@ -32,7 +33,7 @@ class _IndexPageState extends State<IndexPage> {
       ProfilePage(),
       RecordPage(),
       GoogleMapPage(),
-      RecordPage(),
+      MyHistoryPage(),
       // TodayWordScreen(),
       // MyPageScreen(),
     ];
@@ -77,7 +78,11 @@ class _IndexPageState extends State<IndexPage> {
             child: FloatingActionButton(
               backgroundColor: Colors.redAccent,
               onPressed: () {
-                Get.to(() => RecordPage());
+                Get.to(
+                    RecordPage(),
+                    duration: Duration(milliseconds: 400),
+                    transition: Transition.fade
+                );
                 },
               child: Text("Run",style: TextStyle(fontFamily: 'Aggro')),
             ),

@@ -47,9 +47,9 @@ Widget bottomNavigationBar(_selectedIndex, _onTapped) {
       ),
       BottomNavigationBarItem(
           icon: Icon(
-              Icons.favorite
+              Icons.event_note
           ),
-          label: '수락요청'),
+          label: '기록'),
     ],
     currentIndex: _selectedIndex,
     onTap: _onTapped,

@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:how_much_spend_app/app/ui/theme/constant.dart';
 import 'package:how_much_spend_app/app/ui/theme/utils.dart';
@@ -8,7 +8,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage>{
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  // FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   void initState() {
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage>{
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:[
-                  LoginedText(name: _auth.currentUser?.displayName),
+                  LoginedText(name: "임수빈"),
                   Row(children: [
                     IconButton(onPressed: (){}, icon: Icon(Icons.notifications_none)),
                     IconButton(onPressed: (){}, icon: Icon(Icons.settings))

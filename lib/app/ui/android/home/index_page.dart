@@ -8,7 +8,7 @@ import 'package:how_much_spend_app/app/ui/android/login/widget/profile.dart';
 import 'package:how_much_spend_app/app/ui/android/record/record_page.dart';
 import 'package:how_much_spend_app/app/ui/android/record/widget/google_map_page.dart';
 import 'package:how_much_spend_app/app/ui/android/widgets/bottom_navigator_widget.dart';
-import 'package:how_much_spend_app/app/ui/theme/constant.dart';
+import 'package:how_much_spend_app/constant.dart';
 
 class IndexPage extends StatefulWidget {
   static const routeId = '/';
@@ -30,7 +30,7 @@ class _IndexPageState extends State<IndexPage> {
     _selectedIndex = widget.selectIndex;
     _screens = [
       HomePage(),
-      ProfilePage(),
+      GoogleMapPage(),
       RecordPage(),
       GoogleMapPage(),
       MyHistoryPage(),
@@ -76,7 +76,7 @@ class _IndexPageState extends State<IndexPage> {
           width: 80,
           child: FittedBox(
             child: FloatingActionButton(
-              backgroundColor: Colors.redAccent,
+              backgroundColor: mainColor,
               onPressed: () {
                 Get.to(
                     RecordPage(),

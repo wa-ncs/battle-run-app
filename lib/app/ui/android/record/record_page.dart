@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:how_much_spend_app/app/ui/android/home/index_page.dart';
 import 'package:how_much_spend_app/app/ui/android/record/record_detail_page.dart';
 import 'package:how_much_spend_app/app/ui/android/record/widget/place_marker.dart';
-import 'package:how_much_spend_app/app/ui/theme/constant.dart';
+import 'package:how_much_spend_app/constant.dart';
 import 'package:how_much_spend_app/app/ui/theme/utils.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
@@ -224,7 +224,7 @@ class _State extends State<CountUpTimerPage> {
                       height: 100,
                       child: isRunning ? Container(
                         decoration: BoxDecoration(
-                          color: Colors.blue,
+                          color: mainColor,
                             borderRadius: BorderRadius.all(
                                 Radius.circular(50.0))
                         ),
@@ -291,7 +291,7 @@ class _State extends State<CountUpTimerPage> {
                         ),
                       ) : Container(
                         decoration: BoxDecoration(
-                            color: Colors.blue,
+                            color: mainColor,
                             shape: BoxShape.circle
                         ),
                         child: Wrap(
@@ -307,7 +307,7 @@ class _State extends State<CountUpTimerPage> {
                                   });
                                 },
                                 iconSize: 45,
-                                icon: Icon(Icons.play_arrow, color: Colors.white,)
+                                icon: Icon(Icons.play_arrow, color: Colors.white)
                             ),
                           ],
                         ),
